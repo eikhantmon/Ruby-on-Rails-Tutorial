@@ -1,23 +1,45 @@
-<h1>Listing articles</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
 
-<h2><%= link_to 'New Articles' %></h2>
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    
+    <div class="container">
 
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Text</th>
-		<th colspan="-2">Show</th>
-		<th colspan="-2">Edit</th>
-		<th colspan="-2">Destroy</th>
-	</tr>
-
-	<% @articles.each do |article| %>
-		<tr>
-			<td><%= article.title %></td>
-			<td><%= article.text %></td>
-			<td><%= link_to 'Show', article_path(article) %></td>
-			<td><%= link_to 'Edit', edit_article_path(article) %></td>
-			<td><%= link_to 'Destroy',article_path(article), method: :delete, data: {confirm: 'Are you sure?' } %></td>
-		</tr>
-	<% end %>
-</table>
+        <h1>Listing articles</h1><br>
+        <h2><%= link_to 'New Articles' %></h2><br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Text</th>
+                    <th>Show</th>
+                    <th>Edit</th>
+                    <th>Destroy</th>
+                </tr>
+            </thead>
+            <% @articles.each do |article| %>
+            <tbody>
+                <tr>
+                    <td><%= article.title %></td>
+                    <td><%= article.text %></td>
+                    <td><%= link_to 'Show', article_path(article) %></td>
+                    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+                    <td><%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+                </tr>
+            </tbody>
+            <% end %>
+        </table>
+    </div>
+</body>
+</html>
